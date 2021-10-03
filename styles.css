@@ -3,11 +3,14 @@ body {
     color: lime;
     font-family: "PressStart2P-Regular";
     font-size: 1.5rem;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
 main {
-    margin: 4rem auto;
+    margin: 4rem auto 0;
     width: 80%;
+    height:80vh;
 }
 
 section > * {
@@ -23,12 +26,6 @@ section > * {
     vertical-align: super;
     animation: blink 1.8s linear infinite;
 
-}
-
-.clippy {
-    position: fixed;
-    top: 55%;
-    left: 55%;
 }
 
 @keyframes blink {
@@ -47,4 +44,13 @@ section > * {
     100% {
         opacity: 0;
     }
+}
+
+footer {
+    margin: 1rem auto;
+    text-align: center;
+}
+
+footer a, footer a:visited{
+    color: lime;
 }
