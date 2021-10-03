@@ -1,0 +1,50 @@
+body {
+    background-color: #2b2b2b;
+    color: lime;
+    font-family: "PressStart2P-Regular";
+    font-size: 1.5rem;
+}
+
+main {
+    margin: 4rem auto;
+    width: 80%;
+}
+
+section > * {
+    margin-bottom: 1rem;
+}
+
+@font-face {
+    font-family: "PressStart2P-Regular";
+    src: url("PressStart2P-Regular.ttf");
+}
+
+#cursor {
+    vertical-align: super;
+    animation: blink 1.8s linear infinite;
+
+}
+
+.clippy {
+    position: fixed;
+    top: 55%;
+    left: 55%;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    65% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

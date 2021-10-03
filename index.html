@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" type="text/css" href="./styles.css"/>
+        <link rel="stylesheet" type="text/css" href="./assets/clippy.css"/>
+        <title>welcome to the D4RK W3B</title>
+    </head>
+    <body>
+        <main>
+            <section>
+                <div id="typing">
+                    
+                </div>
+                <div id="typing2"></div>
+                <div id="typing3"></div>
+               <div id="typing4"></div>
+            </section>
+        </main>
+    </body>
+
+    <script>
+        const text1 = `darkweb.lol`
+        const text2 = `a hacking`
+        const text3 = `typing game`
+        const text4 = `by nextlevelbanana`
+        const text5 = `coming soon`
+
+        const cursor = document.createElement("span");
+        cursor.textContent = "█";
+        cursor.id = "cursor";
+
+        const actuallyType = async (text, eleRef, delay, cursor) => {
+            const letters = text.split("");
+            i = 0; 
+            while(i < letters.length) {
+                await waitForMs(delay);
+
+                span = document.getElementById(eleRef).appendChild(document.createElement("span"));
+                span.className = "new";
+                span.textContent = letters[i] + " ";
+                span.appendChild(cursor)
+
+                i++;
+            }
+        }
+
+        async function typetext() {
+            await actuallyType(text1, "typing", 200, cursor);
+            await actuallyType(text2, "typing2", 200, cursor);            
+
+            await waitForMs(500);
+            while (i > 2) {
+                await waitForMs(200);
+                const str = document.getElementById("typing2").textContent;
+                span = document.getElementById("typing2");
+                span.textContent = document.getElementById("typing2").textContent.substr(0,i*2-2)
+                span.appendChild(cursor)
+                i--;
+            }
+
+            await actuallyType(text3, "typing2", 200, cursor);
+            await actuallyType(text4, "typing3", 200, cursor);
+            await actuallyType(text5, "typing4", 100, cursor);
+
+            cursor.classList += "blink";
+
+            return;
+        }
+
+
+        function waitForMs(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms))
+        }
+
+        typetext(text1, "typing");
+
+        
+
+    </script>
+
+    <!-- clippy -->
+    <script src="https://unpkg.com/jquery@3.2.1"></script>
+
+    <script src="https://unpkg.com/clippyjs@latest"></script>
+
+    <script type="text/javascript">
+    clippy.load('Clippy', function(agent){
+        // Do anything with the loaded agent
+    
+        setTimeout(() => {
+            agent.show();
+            agent.play("LookUpRight");
+            agent.speak("Looks like you're you're behind on your rent! Would you like some help pwing n00bs for $$$?", true);
+        }, 10000);
+    }, undefined,'./assets/agents/');
+    </script>
+</html>
